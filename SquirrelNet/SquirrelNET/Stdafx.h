@@ -20,6 +20,8 @@
 #define MarshalAs(T) [MarshalAs(UnmanagedType::T)]
 #define UniString MarshalAs(LPWStr) String
 #define OUT(Typ) [Out] Typ%
+#define ToVM(S) ((HSQUIRRELVM)S.ToPointer())
+#define GetSQCharPtr(Str, Name) pin_ptr<const SQChar> Name = PtrToStringChars(Str)
 
 #define usings\
 	using namespace System; \

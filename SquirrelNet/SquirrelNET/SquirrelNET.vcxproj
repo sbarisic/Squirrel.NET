@@ -262,13 +262,18 @@
       <FileType>CppCode</FileType>
     </ClCompile>
     <ClCompile Include="AssemblyInfo.cpp" />
-    <ClCompile Include="SquirrelNET.cpp" />
+    <ClCompile Include="Calls.cpp" />
+    <ClCompile Include="Compiler.cpp" />
+    <ClCompile Include="SqStd.cpp" />
+    <ClCompile Include="ObjectManipulation.cpp" />
+    <ClCompile Include="Stack.cpp" />
     <ClCompile Include="Stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="VM.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="TO_FUCKING_DO.txt" />

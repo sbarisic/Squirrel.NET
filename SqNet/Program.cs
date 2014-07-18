@@ -31,11 +31,8 @@ namespace SqNet {
 			SqStd.RegisterSystemLib(S);
 			SqStd.RegisterMathLib(S);
 			SqStd.RegisterStringLib(S);
-
 			SqStd.SetErrorHandlers(S);
 
-
-			Sq.PushRootTable(S);
 
 			while (true) {
 				Console.Write(Prmpt);

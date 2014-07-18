@@ -19,6 +19,7 @@
 #define CConv(C) [UnmanagedFunctionPointer(CallingConvention::C)]
 #define MarshalAs(T) [MarshalAs(UnmanagedType::T)]
 #define UniString MarshalAs(LPWStr) String
+#define OUT(Typ) [Out] Typ%
 
 #define usings\
 	using namespace System; \

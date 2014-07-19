@@ -1,4 +1,6 @@
-#include "Stdafx.h"
+/*
+	see copyright notice in squirrel.h
+*/
 #include "sqpcheader.h"
 void *sq_vm_malloc(SQUnsignedInteger size){	return malloc(size); }
 

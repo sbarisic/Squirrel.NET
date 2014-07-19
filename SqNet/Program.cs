@@ -13,8 +13,6 @@ namespace SqNet {
 
 		static void Main(string[] args) {
 			Console.Title = "SqNet";
-			Console.WriteLine("Loading");
-
 
 			IntPtr S = Sq.Open(1024);
 			Sq.SetPrintFunc(S, (SS, Str) => {
@@ -33,6 +31,11 @@ namespace SqNet {
 			SqStd.RegisterStringLib(S);
 			SqStd.SetErrorHandlers(S);
 
+
+
+
+			Console.WriteLine("Running .NET version of Squirrel {0}\n",
+				String.Join(".", Sq.GetVersion().ToString().ToCharArray()));
 
 			while (true) {
 				Console.Write(Prmpt);

@@ -1,4 +1,4 @@
-#include "Stdafx.h"
+/* see copyright notice in squirrel.h */
 #include <squirrel.h>
 #include <string.h>
 #include <ctype.h>
@@ -186,7 +186,7 @@ static SQInteger sqstd_rex_class(SQRex *exp)
 			exp->_nodes[r].left = exp->_nodes[first].type;
 			SQInteger t = sqstd_rex_escapechar(exp);
 			exp->_nodes[r].right = t;
-			exp->_nodes[chain].next = r;
+            exp->_nodes[chain].next = r;
 			chain = r;
 			first = -1;
 		}

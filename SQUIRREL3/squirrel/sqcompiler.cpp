@@ -1,4 +1,6 @@
-#include "Stdafx.h"
+/*
+	see copyright notice in squirrel.h
+*/
 #include "sqpcheader.h"
 #ifndef NO_COMPILER
 #include <stdarg.h>
@@ -23,6 +25,8 @@ struct SQExpState {
   SQInteger  epos;        /* expr. location on stack; -1 for OBJECT and BASE */
   bool       donot_get;   /* signal not to deref the next value */
 };
+
+#define MAX_COMPILER_ERROR_LEN 256
 
 struct SQScope {
 	SQInteger outers;
@@ -76,7 +80,7 @@ public:
 		_lineinfo = lineinfo;_raiseerror = raiseerror;
 		_scope.outers = 0;
 		_scope.stacksize = 0;
-		compilererror = NULL;
+		_compilererror[0] = NULL;
 	}
 	static void ThrowError(void *ud, const SQChar *s) {
 		SQCompiler *c = (SQCompiler *)ud;
@@ -84,12 +88,10 @@ public:
 	}
 	void Error(const SQChar *s, ...)
 	{
-		SQChar temp[256];
 		va_list vl;
 		va_start(vl, s);
-		scvsprintf(temp, s, vl);
+		scvsprintf(_compilererror, s, vl);
 		va_end(vl);
-		compilererror = temp;
 		longjmp(_errorjmp,1);
 	}
 	void Lex(){	_token = _lex.Lex();}
@@ -189,10 +191,10 @@ public:
 		}
 		else {
 			if(_raiseerror && _ss(_vm)->_compilererrorhandler) {
-				_ss(_vm)->_compilererrorhandler(_vm, compilererror, type(_sourcename) == OT_STRING?_stringval(_sourcename):_SC("unknown"),
+				_ss(_vm)->_compilererrorhandler(_vm, _compilererror, type(_sourcename) == OT_STRING?_stringval(_sourcename):_SC("unknown"),
 					_lex._currentline, _lex._currentcolumn);
 			}
-			_vm->_lasterror = SQString::Create(_ss(_vm), compilererror, -1);
+			_vm->_lasterror = SQString::Create(_ss(_vm), _compilererror, -1);
 			return false;
 		}
 		return true;
@@ -318,7 +320,7 @@ public:
 		SQInteger val = _fs->PopTarget();
 		SQInteger key = _fs->PopTarget();
 		SQInteger src = _fs->PopTarget();
-		_fs->AddInstruction(op,_fs->PushTarget(),src,key,val);
+        _fs->AddInstruction(op,_fs->PushTarget(),src,key,val);
 	}
 	void Emit2ArgsOP(SQOpcode op, SQInteger p3 = 0)
 	{
@@ -500,7 +502,7 @@ public:
 			_fs->SetIntructionParam(jpos, 1, (_fs->GetCurrentPos() - jpos));
 			break;
 			}
-	
+    
 		default:
 			return;
 		}
@@ -819,7 +821,7 @@ public:
 				SQInteger apos = _fs->GetCurrentPos(),key = 0;
 				Lex();
 				while(_token != _SC(']')) {
-					Expression(); 
+                    Expression(); 
 					if(_token == _SC(',')) Lex();
 					SQInteger val = _fs->PopTarget();
 					SQInteger array = _fs->TopTarget();
@@ -897,7 +899,7 @@ public:
 	{
 		switch(_token) {
 		case _SC('='): case _SC('('): case TK_NEWSLOT: case TK_MODEQ: case TK_MULEQ:
-		case TK_DIVEQ: case TK_MINUSEQ: case TK_PLUSEQ: case TK_PLUSPLUS: case TK_MINUSMINUS:
+	    case TK_DIVEQ: case TK_MINUSEQ: case TK_PLUSEQ: case TK_PLUSPLUS: case TK_MINUSMINUS:
 			return false;
 		}
 		return (!_es.donot_get || ( _es.donot_get && (_token == _SC('.') || _token == _SC('['))));
@@ -918,7 +920,7 @@ public:
 		 for(SQInteger i = 0; i < (nargs - 1); i++) _fs->PopTarget();
 		 SQInteger stackbase = _fs->PopTarget();
 		 SQInteger closure = _fs->PopTarget();
-		 _fs->AddInstruction(_OP_CALL, _fs->PushTarget(), closure, stackbase, nargs);
+         _fs->AddInstruction(_OP_CALL, _fs->PushTarget(), closure, stackbase, nargs);
 	}
 	void ParseTableOrClass(SQInteger separator,SQInteger terminator)
 	{
@@ -1015,32 +1017,32 @@ public:
 		} while(1);
 	}
 	void IfStatement()
-	{
-		SQInteger jmppos;
-		bool haselse = false;
-		Lex(); Expect(_SC('(')); CommaExpr(); Expect(_SC(')'));
-		_fs->AddInstruction(_OP_JZ, _fs->PopTarget());
-		SQInteger jnepos = _fs->GetCurrentPos();
-		BEGIN_SCOPE();
-		
-		Statement();
-		//
-		if(_token != _SC('}') && _token != TK_ELSE) OptionalSemicolon();
-		
-		END_SCOPE();
-		SQInteger endifblock = _fs->GetCurrentPos();
-		if(_token == TK_ELSE){
-			haselse = true;
-			BEGIN_SCOPE();
-			_fs->AddInstruction(_OP_JMP);
-			jmppos = _fs->GetCurrentPos();
-			Lex();
-			Statement(); if(_lex._prevtoken != _SC('}')) OptionalSemicolon();
-			END_SCOPE();
-			_fs->SetIntructionParam(jmppos, 1, _fs->GetCurrentPos() - jmppos);
-		}
-		_fs->SetIntructionParam(jnepos, 1, endifblock - jnepos + (haselse?1:0));
-	}
+    {
+        SQInteger jmppos;
+        bool haselse = false;
+        Lex(); Expect(_SC('(')); CommaExpr(); Expect(_SC(')'));
+        _fs->AddInstruction(_OP_JZ, _fs->PopTarget());
+        SQInteger jnepos = _fs->GetCurrentPos();
+        BEGIN_SCOPE();
+        
+        Statement();
+        //
+        if(_token != _SC('}') && _token != TK_ELSE) OptionalSemicolon();
+        
+        END_SCOPE();
+        SQInteger endifblock = _fs->GetCurrentPos();
+        if(_token == TK_ELSE){
+            haselse = true;
+            BEGIN_SCOPE();
+            _fs->AddInstruction(_OP_JMP);
+            jmppos = _fs->GetCurrentPos();
+            Lex();
+            Statement(); if(_lex._prevtoken != _SC('}')) OptionalSemicolon();
+            END_SCOPE();
+            _fs->SetIntructionParam(jmppos, 1, _fs->GetCurrentPos() - jmppos);
+        }
+        _fs->SetIntructionParam(jnepos, 1, endifblock - jnepos + (haselse?1:0));
+    }
 	void WhileStatement()
 	{
 		SQInteger jzpos, jmppos;
@@ -1475,7 +1477,7 @@ public:
 			Statement(false); 
 		}
 		funcstate->AddLineInfos(_lex._prevtoken == _SC('\n')?_lex._lasttokenline:_lex._currentline, _lineinfo, true);
-		funcstate->AddInstruction(_OP_RETURN, -1);
+        funcstate->AddInstruction(_OP_RETURN, -1);
 		funcstate->SetStackSize(0);
 
 		SQFunctionProto *func = funcstate->BuildProto();
@@ -1517,7 +1519,7 @@ private:
 	SQInteger _debugop;
 	SQExpState   _es;
 	SQScope _scope;
-	SQChar *compilererror;
+	SQChar _compilererror[MAX_COMPILER_ERROR_LEN];
 	jmp_buf _errorjmp;
 	SQVM *_vm;
 };

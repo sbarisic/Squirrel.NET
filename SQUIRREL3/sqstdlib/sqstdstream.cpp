@@ -1,4 +1,4 @@
-#include "Stdafx.h"
+/* see copyright notice in squirrel.h */
 #include <new>
 #include <stdio.h>
 #include <stdlib.h>
@@ -289,7 +289,7 @@ SQRESULT declare_stream(HSQUIRRELVM v,const SQChar* name,SQUserPointer typetag,c
 		return sq_throwerror(v,_SC("table expected"));
 	SQInteger top = sq_gettop(v);
 	//create delegate
-	init_streamclass(v);
+    init_streamclass(v);
 	sq_pushregistrytable(v);
 	sq_pushstring(v,reg_name,-1);
 	sq_pushstring(v,_SC("std_stream"),-1);

@@ -1,4 +1,4 @@
-#include "Stdafx.h"
+/* see copyright notice in squirrel.h */
 #include <new>
 #include <stdio.h>
 #include <squirrel.h>

@@ -1,5 +1,5 @@
 #pragma once
-usings
+usings;
 
 #define SQBool bool
 
@@ -25,7 +25,14 @@ namespace SquirrelNET {
 		_Outer =		(_RT_OUTER | SQOBJECT_REF_COUNTED) //internal usage only
 	};
 
+	public value class SQMemberHandle {
+	public:
+		SQBool Static;
+		SQInteger Index;
+	};
+
 	public value class SQFunctionInfo {
+	public:
 		IntPtr FuncID;
 		String^ Name;
 		String^ Source;
@@ -112,105 +119,82 @@ namespace SquirrelNET {
 		static SQRESULT GetWeakRefVal(IntPtr v, SQInteger idx);
 		static SQRESULT Clear(IntPtr v, SQInteger idx);
 
-		// TODO: Implement in ObjectCreation.cpp
-		static IntPtr NewUserdata(IntPtr v, SQUnsignedInteger size) { return IntPtr(0); } // TO IMPLEMENT
-		static void NewTable(IntPtr v) { return; } // TO IMPLEMENT
-		static void NewTableEx(IntPtr v, SQInteger initialcapacity) { return; } // TO IMPLEMENT
-		static void NewArray(IntPtr v, SQInteger size) { return; } // TO IMPLEMENT
-		static void NewClosure(IntPtr v, Function^ func, SQUnsignedInteger nfreevars) { return; } // TO IMPLEMENT
-		static SQRESULT SetParasCheck(IntPtr v, SQInteger nparamscheck, String^ typemask) { return NULL; } // TO IMPLEMENT
-		static SQRESULT BindEnv(IntPtr v, SQInteger idx) { return NULL; } // TO IMPLEMENT
-		static void PushString(IntPtr v, String^ s) { return; } // TO IMPLEMENT
-		static void PushFloat(IntPtr v, SQFloat f) { return; } // TO IMPLEMENT
-		static void PushInteger(IntPtr v, SQInteger n) { return; } // TO IMPLEMENT
-		static void PushBool(IntPtr v, SQBool b) { return; } // TO IMPLEMENT
-		static void PushUserPointer(IntPtr v, IntPtr p) { return; } // TO IMPLEMENT
-		static void PushNull(IntPtr v) { return; } // TO IMPLEMENT
-		static SQObjectType GetType(IntPtr v, SQInteger idx) { return SQObjectType::Null; } // TO IMPLEMENT
-		static SQRESULT TypeOf(IntPtr v, SQInteger idx) { return NULL; } // TO IMPLEMENT
-		static SQInteger GetSize(IntPtr v, SQInteger idx) { return NULL; } // TO IMPLEMENT
-		static SQHash GetHash(IntPtr v, SQInteger idx) { return NULL; } // TO IMPLEMENT
-		static SQRESULT GetBase(IntPtr v, SQInteger idx) { return NULL; } // TO IMPLEMENT
-		static SQBool InstanceOf(IntPtr v) { return NULL; } // TO IMPLEMENT
-		static SQRESULT ToString(IntPtr v, SQInteger idx) { return NULL; } // TO IMPLEMENT
-		static bool ToBool(IntPtr v, SQInteger idx) { return NULL; } // TO IMPLEMENT
-		static String^ GetString(IntPtr v, SQInteger idx) { return ""; } // TO IMPLEMENT
-		static int GetInt(IntPtr v, SQInteger idx) { return NULL; } // TO IMPLEMENT
-		static float GetFloat(IntPtr v, SQInteger idx) { return NULL; } // TO IMPLEMENT
-		static bool GetBool(IntPtr v, SQInteger idx, SQBool) { return NULL; } // TO IMPLEMENT
-		static IntPtr GetThread(IntPtr v, SQInteger idx) { return IntPtr(0); } // TO IMPLEMENT
-		static IntPtr GetUserPointer(IntPtr v, SQInteger idx) { return IntPtr(0); } // TO IMPLEMENT
-		static Tuple<IntPtr, IntPtr>^ GetUserData(IntPtr v, SQInteger idx) { return gcnew Tuple<IntPtr, IntPtr>(IntPtr(0), IntPtr(0)); } // TO IMPLEMENT
-		static SQRESULT SetTypeTag(IntPtr v, SQInteger idx, IntPtr typetag) { return NULL; } // TO IMPLEMENT
-		static IntPtr GetTypeTag(IntPtr v, SQInteger idx) { return IntPtr(0); } // TO IMPLEMENT
-		static void SetReleaseHook(IntPtr v, SQInteger idx, SQRELEASEHOOK hook) { return; } // TO IMPLEMENT // TODO
-		static String^ GetScratchPad(IntPtr v, SQInteger minsize) { return ""; } // TO IMPLEMENT
-		static SQFunctionInfo GetFunctionInfo(IntPtr v, SQInteger level) { return SQFunctionInfo(); } // TO IMPLEMENT
-		static Tuple<unsigned int, unsigned int>^ GetClosureInfo(IntPtr v, SQInteger idx) { return gcnew Tuple<unsigned int, unsigned int>(0, 0); } // TO IMPLEMENT
-		static SQRESULT GetClosureName(IntPtr v, SQInteger idx) { return NULL; } // TO IMPLEMENT
-		static SQRESULT GetNativeClosureName(IntPtr v, SQInteger idx, String^ name) { return NULL; } // TO IMPLEMENT
-		static SQRESULT SetInstanceUp(IntPtr v, SQInteger idx, IntPtr p) { return NULL; } // TO IMPLEMENT
-		static IntPtr GetInstanceUp(IntPtr v, SQInteger idx, IntPtr typetag) { return IntPtr(0); } // TO IMPLEMENT
-		static SQRESULT SetClassUDSize(IntPtr v, SQInteger idx, SQInteger udsize) { return NULL; } // TO IMPLEMENT
-		static SQRESULT NewClass(IntPtr v, SQBool hasbase) { return NULL; } // TO IMPLEMENT
-		static SQRESULT CreateInstance(IntPtr v, SQInteger idx) { return NULL; } // TO IMPLEMENT
-		static SQRESULT SetAttributes(IntPtr v, SQInteger idx) { return NULL; } // TO IMPLEMENT
-		static SQRESULT GetAttributes(IntPtr v, SQInteger idx) { return NULL; } // TO IMPLEMENT
-		static SQRESULT GetClass(IntPtr v, SQInteger idx) { return NULL; } // TO IMPLEMENT
-		static void WeakRef(IntPtr v, SQInteger idx) { return; } // TO IMPLEMENT
-		static SQRESULT GetDefaultDelegate(IntPtr v, SQObjectType t) { return NULL; } // TO IMPLEMENT
-		static IntPtr GetMemberHandle(IntPtr v, SQInteger idx) { return IntPtr(0); } // TO IMPLEMENT
-		static SQRESULT GetByHandle(IntPtr v, SQInteger idx, IntPtr handle) { return NULL; } // TO IMPLEMENT
-		static SQRESULT SetByHandle(IntPtr v, SQInteger idx, IntPtr handle) { return NULL; } // TO IMPLEMENT
+		static IntPtr NewUserdata(IntPtr v, SQUnsignedInteger size);
+		static void NewTable(IntPtr v);
+		static void NewTableEx(IntPtr v, SQInteger initialcapacity);
+		static void NewArray(IntPtr v, SQInteger size);
+		static void NewClosure(IntPtr v, Function^ func, SQUnsignedInteger nfreevars);
+		static SQRESULT SetParamsCheck(IntPtr v, SQInteger nparamscheck, String^ typemask);
+		static SQRESULT BindEnv(IntPtr v, SQInteger idx);
+		static void PushString(IntPtr v, String^ s);
+		static void PushFloat(IntPtr v, SQFloat f);
+		static void PushInteger(IntPtr v, SQInteger n);
+		static void PushBool(IntPtr v, SQBool b);
+		static void PushUserPointer(IntPtr v, IntPtr p);
+		static void PushNull(IntPtr v);
+		static SQObjectType GetType(IntPtr v, SQInteger idx);
+		static SQRESULT TypeOf(IntPtr v, SQInteger idx);
+		static SQInteger GetSize(IntPtr v, SQInteger idx);
+		static SQHash GetHash(IntPtr v, SQInteger idx);
+		static SQRESULT GetBase(IntPtr v, SQInteger idx);
+		static SQBool InstanceOf(IntPtr v);
+		static SQRESULT ToString(IntPtr v, SQInteger idx);
+		static bool ToBool(IntPtr v, SQInteger idx);
+		static SQRESULT GetString(IntPtr v, SQInteger idx, OUT(String^) Str);
+		static SQRESULT GetInt(IntPtr v, SQInteger idx, OUT(SQInteger) I);
+		static SQRESULT GetFloat(IntPtr v, SQInteger idx, OUT(SQFloat) F);
+		static SQRESULT GetBool(IntPtr v, SQInteger idx, OUT(SQBool) B);
+		static SQRESULT GetThread(IntPtr v, SQInteger idx, OUT(IntPtr) T);
+		static SQRESULT GetUserPointer(IntPtr v, SQInteger idx, OUT(IntPtr) U);
+		static SQRESULT GetUserData(IntPtr v, SQInteger idx, OUT(IntPtr) U, OUT(IntPtr) T);
+		static SQRESULT SetTypeTag(IntPtr v, SQInteger idx, IntPtr typetag);
+		static SQRESULT GetTypeTag(IntPtr v, SQInteger idx, OUT(IntPtr) T);
+		static void SetReleaseHook(IntPtr v, SQInteger idx, ReleaseHook^ hook);
+		static String^ GetScratchPad(IntPtr v, SQInteger minsize);
+		static SQRESULT GetFunctionInfo(IntPtr v, SQInteger level, OUT(SQFunctionInfo) Inf);
+		static SQRESULT GetClosureInfo(IntPtr v, SQInteger idx, OUT(SQUnsignedInteger) Params, OUT(SQUnsignedInteger) FreeVars);
+		static SQRESULT GetClosureName(IntPtr v, SQInteger idx);
+		//static SQRESULT GetNativeClosureName(IntPtr v, SQInteger idx, String^ name); // Doesn't exist, the fuck?
+		static SQRESULT SetInstanceUp(IntPtr v, SQInteger idx, IntPtr p);
+		static SQRESULT GetInstanceUp(IntPtr v, SQInteger idx, OUT(IntPtr) UsrPtr, IntPtr typetag);
+		static SQRESULT SetClassUDSize(IntPtr v, SQInteger idx, SQInteger udsize);
+		static SQRESULT NewClass(IntPtr v, SQBool hasbase);
+		static SQRESULT CreateInstance(IntPtr v, SQInteger idx);
+		static SQRESULT SetAttributes(IntPtr v, SQInteger idx);
+		static SQRESULT GetAttributes(IntPtr v, SQInteger idx);
+		static SQRESULT GetClass(IntPtr v, SQInteger idx);
+		static void WeakRef(IntPtr v, SQInteger idx);
+		static SQRESULT GetDefaultDelegate(IntPtr v, SQObjectType t);
+		static SQRESULT GetMemberHandle(IntPtr v, SQInteger idx, OUT(SQMemberHandle) H);
+		static SQRESULT GetByHandle(IntPtr v, SQInteger idx, SQMemberHandle handle);
+		static SQRESULT SetByHandle(IntPtr v, SQInteger idx, SQMemberHandle handle);
 
-		// TODO: Implement in ObjectHandling.cpp
-		static SQRESULT GetStackObj(IntPtr v, SQInteger idx, IntPtr po) { return NULL; } // TO IMPLEMENT
-		static void PushObject(IntPtr v, HSQOBJECT obj) { return; } // TO IMPLEMENT
-		static void AddRef(IntPtr v, IntPtr po) { return; } // TO IMPLEMENT
-		static SQBool Release(IntPtr v, IntPtr po) { return NULL; } // TO IMPLEMENT
-		static SQUnsignedInteger GetRefCount(IntPtr v, IntPtr po) { return NULL; } // TO IMPLEMENT
-		static void ResetObject(IntPtr po) { return; } // TO IMPLEMENT
-		static String^ ObjToString(IntPtr o) { return ""; } // TO IMPLEMENT
-		static SQBool ObjToBool(IntPtr o) { return NULL; } // TO IMPLEMENT
-		static SQInteger ObjToInt(IntPtr o) { return NULL; } // TO IMPLEMENT
-		static SQFloat ObjToFloat(IntPtr o) { return NULL; } // TO IMPLEMENT
-		static IntPtr ObjToUserPointer(IntPtr o) { return IntPtr(0); } // TO IMPLEMENT
-		static IntPtr GetObjTypeTag(IntPtr o) { return IntPtr(0); } // TO IMPLEMENT
+		static IntPtr AllocSQObject();
+		static void FreeSQObject(IntPtr o);
+		static SQRESULT GetStackObj(IntPtr v, SQInteger idx, IntPtr po);
+		static void PushObject(IntPtr v, IntPtr obj);
+		static void AddRef(IntPtr v, IntPtr po);
+		static SQBool Release(IntPtr v, IntPtr po);
+		static SQUnsignedInteger GetRefCount(IntPtr v, IntPtr po);
+		static void ResetObject(IntPtr po);
+		static String^ ObjToString(IntPtr o);
+		static SQBool ObjToBool(IntPtr o);
+		static SQInteger ObjToInt(IntPtr o);
+		static SQFloat ObjToFloat(IntPtr o);
+		static IntPtr ObjToUserPointer(IntPtr o);
+		static SQRESULT GetObjTypeTag(IntPtr o, OUT(IntPtr) TypeTag);
+		static SQObjectType Type(IntPtr o);
 
-		// TODO: Implement in Misc.cpp
-		static SQInteger CollectGarbage(IntPtr v) { return NULL; } // TO IMPLEMENT
-		static SQRESULT ResurrectUnreachable(IntPtr v) { return NULL; } // TO IMPLEMENT
-		static SQRESULT sq_writeclosure(IntPtr vm, WriteFunc^ writef, IntPtr up) { return NULL; } // TO IMPLEMENT // TODO
-		static SQRESULT sq_readclosure(IntPtr vm, ReadFunc^ readf, IntPtr up) { return NULL; } // TO IMPLEMENT // TODO
-		static IntPtr Malloc(SQUnsignedInteger size) { return IntPtr(0); } // TO IMPLEMENT
-		static IntPtr Realloc(IntPtr p, SQUnsignedInteger oldsize, SQUnsignedInteger newsize) { return IntPtr(0); } // TO IMPLEMENT
-		static void Free(IntPtr p, SQUnsignedInteger size) { return; } // TO IMPLEMENT
-		static SQRESULT StackInfos(IntPtr v, SQInteger level, IntPtr si) { return NULL; } // TO IMPLEMENT
-		static void SetDebugHook(IntPtr v) { return; } // TO IMPLEMENT
-		static void SetNativeDebugHook(IntPtr v, DebugHook^ hook) { return; } // TO IMPLEMENT // TODO
-
-		// TODO: Port these fuckers and implement
-		/* 
-		sq_isnumeric(o) ((o)._type&SQOBJECT_NUMERIC)
-		sq_istable(o) ((o)._type==OT_TABLE)
-		sq_isarray(o) ((o)._type==OT_ARRAY)
-		sq_isfunction(o) ((o)._type==OT_FUNCPROTO)
-		sq_isclosure(o) ((o)._type==OT_CLOSURE)
-		sq_isgenerator(o) ((o)._type==OT_GENERATOR)
-		sq_isnativeclosure(o) ((o)._type==OT_NATIVECLOSURE)
-		sq_isstring(o) ((o)._type==OT_STRING)
-		sq_isinteger(o) ((o)._type==OT_INTEGER)
-		sq_isfloat(o) ((o)._type==OT_FLOAT)
-		sq_isuserpointer(o) ((o)._type==OT_USERPOINTER)
-		sq_isuserdata(o) ((o)._type==OT_USERDATA)
-		sq_isthread(o) ((o)._type==OT_THREAD)
-		sq_isnull(o) ((o)._type==OT_NULL)
-		sq_isclass(o) ((o)._type==OT_CLASS)
-		sq_isinstance(o) ((o)._type==OT_INSTANCE)
-		sq_isbool(o) ((o)._type==OT_BOOL)
-		sq_isweakref(o) ((o)._type==OT_WEAKREF)
-		sq_type(o) ((o)._type)
-		//*/
+		static SQInteger CollectGarbage(IntPtr v);
+		static SQRESULT ResurrectUnreachable(IntPtr v);
+		static SQRESULT WriteClosure(IntPtr vm, WriteFunc^ writef, IntPtr up);
+		static SQRESULT ReadClosure(IntPtr vm, ReadFunc^ readf, IntPtr up);
+		static IntPtr Malloc(SQUnsignedInteger size);
+		static IntPtr Realloc(IntPtr p, SQUnsignedInteger oldsize, SQUnsignedInteger newsize);
+		static void Free(IntPtr p, SQUnsignedInteger size);
+		static SQRESULT StackInfos(IntPtr v, SQInteger level, IntPtr si);
+		static void SetDebugHook(IntPtr v);
+		static void SetNativeDebugHook(IntPtr v, DebugHook^ hook);
 	};
 
 	public ref class SqStd {

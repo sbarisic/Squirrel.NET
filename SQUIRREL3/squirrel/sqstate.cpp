@@ -1,4 +1,6 @@
-#include "Stdafx.h"
+/*
+	see copyright notice in squirrel.h
+*/
 #include "sqpcheader.h"
 #include "sqopcodes.h"
 #include "sqvm.h"
@@ -360,7 +362,7 @@ SQInteger SQSharedState::CollectGarbage(SQVM *vm)
 #ifndef NO_GARBAGE_COLLECTOR
 void SQCollectable::AddToChain(SQCollectable **chain,SQCollectable *c)
 {
-	c->_prev = NULL;
+    c->_prev = NULL;
 	c->_next = *chain;
 	if(*chain) (*chain)->_prev = c;
 	*chain = c;
@@ -437,10 +439,10 @@ void RefTable::AddRef(SQObject &obj)
 
 SQUnsignedInteger RefTable::GetRefCount(SQObject &obj)
 {
-	 SQHash mainpos;
-	 RefNode *prev;
-	 RefNode *ref = Get(obj,mainpos,&prev,true);
-	 return ref->refs;
+     SQHash mainpos;
+     RefNode *prev;
+     RefNode *ref = Get(obj,mainpos,&prev,true);
+     return ref->refs;
 }
 
 

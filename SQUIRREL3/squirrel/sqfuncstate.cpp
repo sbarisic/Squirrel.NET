@@ -1,4 +1,6 @@
-#include "Stdafx.h"
+/*
+	see copyright notice in squirrel.h
+*/
 #include "sqpcheader.h"
 #ifndef NO_COMPILER
 #include "sqcompiler.h"
@@ -564,7 +566,7 @@ void SQFuncState::AddInstruction(SQInstruction &i)
 				pi.op = _OP_LOADNULLS;
 				return;
 			}
-			break;
+            break;
 		case _OP_LINE:
 			if(pi.op == _OP_LINE) {
 				_instructions.pop_back();

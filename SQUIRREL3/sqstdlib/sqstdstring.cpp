@@ -1,4 +1,4 @@
-#include "Stdafx.h"
+/* see copyright notice in squirrel.h */
 #include <squirrel.h>
 #include <sqstdstring.h>
 #include <string.h>
@@ -43,8 +43,8 @@ static SQInteger validate_format(HSQUIRRELVM v, SQChar *fmt, const SQChar *src, 
 	else
 		width = 0;
 	if (src[n] == '.') {
-		n++;
-		
+	    n++;
+    	
 		wc = 0;
 		while (scisdigit(src[n])) {
 			swidth[wc] = src[n];

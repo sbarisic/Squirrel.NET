@@ -1,0 +1,250 @@
+ImageRuntimeVersion: v4.0.30319
+Assembly SquirrelNET, Version=1.0.*, Culture=Invariant Language (Invariant Country): 
+	hash=SHA1, flags=PublicKey
+Assembly mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System.Xml, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Struct SquirrelNET.SQMemberHandle: AutoLayout, AnsiClass, Class, Public, SequentialLayout, Sealed, BeforeFieldInit
+  :System.ValueType
+  Fields:
+    Boolean Static : Public
+    Int32 Index : Public
+Struct SquirrelNET.SQFunctionInfo: AutoLayout, AnsiClass, Class, Public, SequentialLayout, Sealed, BeforeFieldInit
+  :System.ValueType
+  Fields:
+    IntPtr FuncID : Public
+    System.String Name : Public
+    System.String Source : Public
+Class SquirrelNET.Sq: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    GetInt(IntPtr, Int32, Int32&(Out)): PrivateScope, Public, Static, HideBySig
+    GetFloat(IntPtr, Int32, Single&(Out)): PrivateScope, Public, Static, HideBySig
+    GetBool(IntPtr, Int32, Boolean&(Out)): PrivateScope, Public, Static, HideBySig
+    GetThread(IntPtr, Int32, IntPtr&(Out)): PrivateScope, Public, Static, HideBySig
+    GetUserPointer(IntPtr, Int32, IntPtr&(Out)): PrivateScope, Public, Static, HideBySig
+    GetUserData(IntPtr, Int32, IntPtr&(Out), IntPtr&(Out)): PrivateScope, Public, Static, HideBySig
+    SetTypeTag(IntPtr, Int32, IntPtr): PrivateScope, Public, Static, HideBySig
+    GetTypeTag(IntPtr, Int32, IntPtr&(Out)): PrivateScope, Public, Static, HideBySig
+    SetReleaseHook(IntPtr, Int32, ReleaseHook): PrivateScope, Public, Static, HideBySig
+    GetScratchPad(IntPtr, Int32): PrivateScope, Public, Static, HideBySig
+    GetFunctionInfo(IntPtr, Int32, SQFunctionInfo&(Out)): PrivateScope, Public, Static, HideBySig
+    GetClosureInfo(IntPtr, Int32, UInt32&(Out), UInt32&(Out)): PrivateScope, Public, Static, HideBySig
+    GetClosureName(IntPtr, Int32): PrivateScope, Public, Static, HideBySig
+    SetInstanceUp(IntPtr, Int32, IntPtr): PrivateScope, Public, Static, HideBySig
+    GetInstanceUp(IntPtr, Int32, IntPtr&(Out), IntPtr): PrivateScope, Public, Static, HideBySig
+    SetClassUDSize(IntPtr, Int32, Int32): PrivateScope, Public, Static, HideBySig
+    NewClass(IntPtr, Boolean(HasFieldMarshal)): PrivateScope, Public, Static, HideBySig
+    CreateInstance(IntPtr, Int32): PrivateScope, Public, Static, HideBySig
+    SetAttributes(IntPtr, Int32): PrivateScope, Public, Static, HideBySig
+    GetAttributes(IntPtr, Int32): PrivateScope, Public, Static, HideBySig
+    GetClass(IntPtr, Int32): PrivateScope, Public, Static, HideBySig
+    WeakRef(IntPtr, Int32): PrivateScope, Public, Static, HideBySig
+    GetDefaultDelegate(IntPtr, SQObjectType): PrivateScope, Public, Static, HideBySig
+    GetMemberHandle(IntPtr, Int32, SQMemberHandle&(Out)): PrivateScope, Public, Static, HideBySig
+    GetByHandle(IntPtr, Int32, SQMemberHandle): PrivateScope, Public, Static, HideBySig
+    SetByHandle(IntPtr, Int32, SQMemberHandle): PrivateScope, Public, Static, HideBySig
+    AllocSQObject(): PrivateScope, Public, Static, HideBySig
+    FreeSQObject(IntPtr): PrivateScope, Public, Static, HideBySig
+    GetStackObj(IntPtr, Int32, IntPtr): PrivateScope, Public, Static, HideBySig
+    PushObject(IntPtr, IntPtr): PrivateScope, Public, Static, HideBySig
+    AddRef(IntPtr, IntPtr): PrivateScope, Public, Static, HideBySig
+    Release(IntPtr, IntPtr): PrivateScope, Public, Static, HideBySig
+    GetRefCount(IntPtr, IntPtr): PrivateScope, Public, Static, HideBySig
+    ResetObject(IntPtr): PrivateScope, Public, Static, HideBySig
+    ObjToString(IntPtr): PrivateScope, Public, Static, HideBySig
+    ObjToBool(IntPtr): PrivateScope, Public, Static, HideBySig
+    ObjToInt(IntPtr): PrivateScope, Public, Static, HideBySig
+    ObjToFloat(IntPtr): PrivateScope, Public, Static, HideBySig
+    ObjToUserPointer(IntPtr): PrivateScope, Public, Static, HideBySig
+    GetObjTypeTag(IntPtr, IntPtr&(Out)): PrivateScope, Public, Static, HideBySig
+    Type(IntPtr): PrivateScope, Public, Static, HideBySig
+    CollectGarbage(IntPtr): PrivateScope, Public, Static, HideBySig
+    ResurrectUnreachable(IntPtr): PrivateScope, Public, Static, HideBySig
+    WriteClosure(IntPtr, WriteFunc, IntPtr): PrivateScope, Public, Static, HideBySig
+    ReadClosure(IntPtr, ReadFunc, IntPtr): PrivateScope, Public, Static, HideBySig
+    Malloc(UInt32): PrivateScope, Public, Static, HideBySig
+    Realloc(IntPtr, UInt32, UInt32): PrivateScope, Public, Static, HideBySig
+    Free(IntPtr, UInt32): PrivateScope, Public, Static, HideBySig
+    StackInfos(IntPtr, Int32, IntPtr): PrivateScope, Public, Static, HideBySig
+    SetDebugHook(IntPtr): PrivateScope, Public, Static, HideBySig
+    SetNativeDebugHook(IntPtr, DebugHook): PrivateScope, Public, Static, HideBySig
+    Open(Int32): PrivateScope, Public, Static, HideBySig
+    NewThread(IntPtr, Int32): PrivateScope, Public, Static, HideBySig
+    SetErrorHandler(IntPtr): PrivateScope, Public, Static, HideBySig
+    Close(IntPtr): PrivateScope, Public, Static, HideBySig
+    SetForeignPtr(IntPtr, IntPtr): PrivateScope, Public, Static, HideBySig
+    GetForeignPtr(IntPtr): PrivateScope, Public, Static, HideBySig
+    SetPrintFunc(IntPtr, PrintFunc, PrintFunc): PrivateScope, Public, Static, HideBySig
+    GetPrintFunc(IntPtr): PrivateScope, Public, Static, HideBySig
+    GetErrorFunc(IntPtr): PrivateScope, Public, Static, HideBySig
+    SuspendVM(IntPtr): PrivateScope, Public, Static, HideBySig
+    WakeupVM(IntPtr, Boolean(HasFieldMarshal), Boolean(HasFieldMarshal), Boolean(HasFieldMarshal), Boolean(HasFieldMarshal)): PrivateScope, Public, Static, HideBySig
+    GetVMState(IntPtr): PrivateScope, Public, Static, HideBySig
+    GetVersion(): PrivateScope, Public, Static, HideBySig
+    Compile(IntPtr, LexReadFunc, IntPtr, String, Boolean(HasFieldMarshal)): PrivateScope, Public, Static, HideBySig
+    CompileBuffer(IntPtr, String, String, Boolean(HasFieldMarshal)): PrivateScope, Public, Static, HideBySig
+    EnableDebugInfo(IntPtr, Boolean(HasFieldMarshal)): PrivateScope, Public, Static, HideBySig
+    NotifyAllExceptions(IntPtr, Boolean(HasFieldMarshal)): PrivateScope, Public, Static, HideBySig
+    SetCompilerErrorHandler(IntPtr, CompilerError): PrivateScope, Public, Static, HideBySig
+    Push(IntPtr, Int32): PrivateScope, Public, Static, HideBySig
+    Pop(IntPtr, Int32): PrivateScope, Public, Static, HideBySig
+    PopTop(IntPtr): PrivateScope, Public, Static, HideBySig
+    Remove(IntPtr, Int32): PrivateScope, Public, Static, HideBySig
+    GetTop(IntPtr): PrivateScope, Public, Static, HideBySig
+    SetTop(IntPtr, Int32): PrivateScope, Public, Static, HideBySig
+    ReserveStack(IntPtr, Int32): PrivateScope, Public, Static, HideBySig
+    Cmp(IntPtr): PrivateScope, Public, Static, HideBySig
+    Move(IntPtr, IntPtr, Int32): PrivateScope, Public, Static, HideBySig
+    Call(IntPtr, Int32, Boolean(HasFieldMarshal), Boolean(HasFieldMarshal)): PrivateScope, Public, Static, HideBySig
+    Resume(IntPtr, Boolean(HasFieldMarshal), Boolean(HasFieldMarshal)): PrivateScope, Public, Static, HideBySig
+    GetLocal(IntPtr, UInt32, UInt32): PrivateScope, Public, Static, HideBySig
+    GetCallee(IntPtr): PrivateScope, Public, Static, HideBySig
+    GetFreeVariable(IntPtr, Int32, UInt32): PrivateScope, Public, Static, HideBySig
+    ThrowError(IntPtr, String): PrivateScope, Public, Static, HideBySig
+    ThrowObject(IntPtr): PrivateScope, Public, Static, HideBySig
+    ResetError(IntPtr): PrivateScope, Public, Static, HideBySig
+    GetLastError(IntPtr): PrivateScope, Public, Static, HideBySig
+    PushRootTable(IntPtr): PrivateScope, Public, Static, HideBySig
+    PushRegistryTable(IntPtr): PrivateScope, Public, Static, HideBySig
+    PushConstantTable(IntPtr): PrivateScope, Public, Static, HideBySig
+    SetRootTable(IntPtr): PrivateScope, Public, Static, HideBySig
+    SetConstantTable(IntPtr): PrivateScope, Public, Static, HideBySig
+    NewSlot(IntPtr, Int32, Boolean(HasFieldMarshal)): PrivateScope, Public, Static, HideBySig
+    DeleteSlot(IntPtr, Int32, Boolean(HasFieldMarshal)): PrivateScope, Public, Static, HideBySig
+    Set(IntPtr, Int32): PrivateScope, Public, Static, HideBySig
+    Get(IntPtr, Int32): PrivateScope, Public, Static, HideBySig
+    RawGet(IntPtr, Int32): PrivateScope, Public, Static, HideBySig
+    RawSet(IntPtr, Int32): PrivateScope, Public, Static, HideBySig
+    RawDeleteSlot(IntPtr, Int32, Boolean(HasFieldMarshal)): PrivateScope, Public, Static, HideBySig
+    NewMember(IntPtr, Int32, Boolean(HasFieldMarshal)): PrivateScope, Public, Static, HideBySig
+    RawNewMember(IntPtr, Int32, Boolean(HasFieldMarshal)): PrivateScope, Public, Static, HideBySig
+    ArrayAppend(IntPtr, Int32): PrivateScope, Public, Static, HideBySig
+    ArrayPop(IntPtr, Int32, Boolean(HasFieldMarshal)): PrivateScope, Public, Static, HideBySig
+    ArrayResize(IntPtr, Int32, Int32): PrivateScope, Public, Static, HideBySig
+    ArrayReverse(IntPtr, Int32): PrivateScope, Public, Static, HideBySig
+    ArrayRemove(IntPtr, Int32, Int32): PrivateScope, Public, Static, HideBySig
+    ArrayInsert(IntPtr, Int32, Int32): PrivateScope, Public, Static, HideBySig
+    SetDelegate(IntPtr, Int32): PrivateScope, Public, Static, HideBySig
+    GetDelegate(IntPtr, Int32): PrivateScope, Public, Static, HideBySig
+    Clone(IntPtr, Int32): PrivateScope, Public, Static, HideBySig
+    SetFreeVariable(IntPtr, Int32, UInt32): PrivateScope, Public, Static, HideBySig
+    Next(IntPtr, Int32): PrivateScope, Public, Static, HideBySig
+    GetWeakRefVal(IntPtr, Int32): PrivateScope, Public, Static, HideBySig
+    Clear(IntPtr, Int32): PrivateScope, Public, Static, HideBySig
+    NewUserdata(IntPtr, UInt32): PrivateScope, Public, Static, HideBySig
+    NewTable(IntPtr): PrivateScope, Public, Static, HideBySig
+    NewTableEx(IntPtr, Int32): PrivateScope, Public, Static, HideBySig
+    NewArray(IntPtr, Int32): PrivateScope, Public, Static, HideBySig
+    NewClosure(IntPtr, Function, UInt32): PrivateScope, Public, Static, HideBySig
+    SetParamsCheck(IntPtr, Int32, String): PrivateScope, Public, Static, HideBySig
+    BindEnv(IntPtr, Int32): PrivateScope, Public, Static, HideBySig
+    PushString(IntPtr, String): PrivateScope, Public, Static, HideBySig
+    PushFloat(IntPtr, Single): PrivateScope, Public, Static, HideBySig
+    PushInteger(IntPtr, Int32): PrivateScope, Public, Static, HideBySig
+    PushBool(IntPtr, Boolean(HasFieldMarshal)): PrivateScope, Public, Static, HideBySig
+    PushUserPointer(IntPtr, IntPtr): PrivateScope, Public, Static, HideBySig
+    PushNull(IntPtr): PrivateScope, Public, Static, HideBySig
+    GetType(IntPtr, Int32): PrivateScope, Public, Static, HideBySig
+    TypeOf(IntPtr, Int32): PrivateScope, Public, Static, HideBySig
+    GetSize(IntPtr, Int32): PrivateScope, Public, Static, HideBySig
+    GetHash(IntPtr, Int32): PrivateScope, Public, Static, HideBySig
+    GetBase(IntPtr, Int32): PrivateScope, Public, Static, HideBySig
+    InstanceOf(IntPtr): PrivateScope, Public, Static, HideBySig
+    ToString(IntPtr, Int32): PrivateScope, Public, Static, HideBySig
+    ToBool(IntPtr, Int32): PrivateScope, Public, Static, HideBySig
+    GetString(IntPtr, Int32, String&(Out)): PrivateScope, Public, Static, HideBySig
+Class SquirrelNET.Sq+PrintFunc: AutoLayout, AnsiClass, Class, NestedPublic, Sealed, BeforeFieldInit
+  :System.MulticastDelegate
+    Void .ctor(System.Object, IntPtr): PrivateScope, Public, SpecialName, RTSpecialName
+  Methods:
+    Invoke(IntPtr, String(HasFieldMarshal)): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+    BeginInvoke(IntPtr, String(HasFieldMarshal), AsyncCallback, Object): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+    EndInvoke(IAsyncResult): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+Class SquirrelNET.Sq+Function: AutoLayout, AnsiClass, Class, NestedPublic, Sealed, BeforeFieldInit
+  :System.MulticastDelegate
+    Void .ctor(System.Object, IntPtr): PrivateScope, Public, SpecialName, RTSpecialName
+  Methods:
+    Invoke(IntPtr): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+    BeginInvoke(IntPtr, AsyncCallback, Object): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+    EndInvoke(IAsyncResult): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+Class SquirrelNET.Sq+ReleaseHook: AutoLayout, AnsiClass, Class, NestedPublic, Sealed, BeforeFieldInit
+  :System.MulticastDelegate
+    Void .ctor(System.Object, IntPtr): PrivateScope, Public, SpecialName, RTSpecialName
+  Methods:
+    Invoke(IntPtr, Int32): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+    BeginInvoke(IntPtr, Int32, AsyncCallback, Object): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+    EndInvoke(IAsyncResult): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+Class SquirrelNET.Sq+CompilerError: AutoLayout, AnsiClass, Class, NestedPublic, Sealed, BeforeFieldInit
+  :System.MulticastDelegate
+    Void .ctor(System.Object, IntPtr): PrivateScope, Public, SpecialName, RTSpecialName
+  Methods:
+    Invoke(IntPtr, String(HasFieldMarshal), String(HasFieldMarshal), Int32, Int32): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+    BeginInvoke(IntPtr, String(HasFieldMarshal), String(HasFieldMarshal), Int32, Int32, AsyncCallback, Object): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+    EndInvoke(IAsyncResult): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+Class SquirrelNET.Sq+DebugHook: AutoLayout, AnsiClass, Class, NestedPublic, Sealed, BeforeFieldInit
+  :System.MulticastDelegate
+    Void .ctor(System.Object, IntPtr): PrivateScope, Public, SpecialName, RTSpecialName
+  Methods:
+    Invoke(IntPtr, Int32, String(HasFieldMarshal), Int32, String(HasFieldMarshal)): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+    BeginInvoke(IntPtr, Int32, String(HasFieldMarshal), Int32, String(HasFieldMarshal), AsyncCallback, Object): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+    EndInvoke(IAsyncResult): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+Class SquirrelNET.Sq+WriteFunc: AutoLayout, AnsiClass, Class, NestedPublic, Sealed, BeforeFieldInit
+  :System.MulticastDelegate
+    Void .ctor(System.Object, IntPtr): PrivateScope, Public, SpecialName, RTSpecialName
+  Methods:
+    Invoke(IntPtr, IntPtr, Int32): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+    BeginInvoke(IntPtr, IntPtr, Int32, AsyncCallback, Object): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+    EndInvoke(IAsyncResult): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+Class SquirrelNET.Sq+ReadFunc: AutoLayout, AnsiClass, Class, NestedPublic, Sealed, BeforeFieldInit
+  :System.MulticastDelegate
+    Void .ctor(System.Object, IntPtr): PrivateScope, Public, SpecialName, RTSpecialName
+  Methods:
+    Invoke(IntPtr, IntPtr, Int32): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+    BeginInvoke(IntPtr, IntPtr, Int32, AsyncCallback, Object): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+    EndInvoke(IAsyncResult): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+Class SquirrelNET.Sq+LexReadFunc: AutoLayout, AnsiClass, Class, NestedPublic, Sealed, BeforeFieldInit
+  :System.MulticastDelegate
+    Void .ctor(System.Object, IntPtr): PrivateScope, Public, SpecialName, RTSpecialName
+  Methods:
+    Invoke(IntPtr): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+    BeginInvoke(IntPtr, AsyncCallback, Object): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+    EndInvoke(IAsyncResult): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+Class SquirrelNET.SqStd: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    SetErrorHandlers(IntPtr): PrivateScope, Public, Static, HideBySig
+    RegisterBlobLib(IntPtr): PrivateScope, Public, Static, HideBySig
+    RegisterIOLib(IntPtr): PrivateScope, Public, Static, HideBySig
+    RegisterSystemLib(IntPtr): PrivateScope, Public, Static, HideBySig
+    RegisterMathLib(IntPtr): PrivateScope, Public, Static, HideBySig
+    RegisterStringLib(IntPtr): PrivateScope, Public, Static, HideBySig
+Class SquirrelNET.SqUtil: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Struct SquirrelNET.SQObjectType: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    SquirrelNET.SQObjectType Null = 16777217 : Public, Static, Literal, HasDefault
+    SquirrelNET.SQObjectType Integer = 83886082 : Public, Static, Literal, HasDefault
+    SquirrelNET.SQObjectType Float = 83886084 : Public, Static, Literal, HasDefault
+    SquirrelNET.SQObjectType Bool = 16777224 : Public, Static, Literal, HasDefault
+    SquirrelNET.SQObjectType String = 134217744 : Public, Static, Literal, HasDefault
+    SquirrelNET.SQObjectType Table = 167772192 : Public, Static, Literal, HasDefault
+    SquirrelNET.SQObjectType Array = 134217792 : Public, Static, Literal, HasDefault
+    SquirrelNET.SQObjectType Userdata = 167772288 : Public, Static, Literal, HasDefault
+    SquirrelNET.SQObjectType Closure = 134217984 : Public, Static, Literal, HasDefault
+    SquirrelNET.SQObjectType NativeClosure = 134218240 : Public, Static, Literal, HasDefault
+    SquirrelNET.SQObjectType Generator = 134218752 : Public, Static, Literal, HasDefault
+    SquirrelNET.SQObjectType Userpointer = 2048 : Public, Static, Literal, HasDefault
+    SquirrelNET.SQObjectType Thread = 134221824 : Public, Static, Literal, HasDefault
+    SquirrelNET.SQObjectType _FuncProto = 134225920 : Public, Static, Literal, HasDefault
+    SquirrelNET.SQObjectType Class = 134234112 : Public, Static, Literal, HasDefault
+    SquirrelNET.SQObjectType Instance = 167804928 : Public, Static, Literal, HasDefault
+    SquirrelNET.SQObjectType WeakRef = 134283264 : Public, Static, Literal, HasDefault
+    SquirrelNET.SQObjectType _Outer = 134348800 : Public, Static, Literal, HasDefault

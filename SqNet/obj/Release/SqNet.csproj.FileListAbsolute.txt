@@ -1,0 +1,6 @@
+E:\Projects\Squirrel.NET\bin\SqNet.exe.config
+E:\Projects\Squirrel.NET\bin\SqNet.exe
+E:\Projects\Squirrel.NET\bin\SqNet.pdb
+E:\Projects\Squirrel.NET\SqNet\obj\Release\SqNet.csprojResolveAssemblyReference.cache
+E:\Projects\Squirrel.NET\SqNet\obj\Release\SqNet.exe
+E:\Projects\Squirrel.NET\SqNet\obj\Release\SqNet.pdb

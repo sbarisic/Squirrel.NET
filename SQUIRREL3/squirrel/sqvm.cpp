@@ -1,4 +1,6 @@
-#include "Stdafx.h"
+/*
+	see copyright notice in squirrel.h
+*/
 #include "sqpcheader.h"
 #include <math.h>
 #include <stdlib.h>
@@ -469,7 +471,7 @@ bool SQVM::Return(SQInteger _arg0, SQInteger _arg1, SQObjectPtr &retval)
 
 bool SQVM::PLOCAL_INC(SQInteger op,SQObjectPtr &target, SQObjectPtr &a, SQObjectPtr &incr)
 {
-	SQObjectPtr trg;
+ 	SQObjectPtr trg;
 	_RET_ON_FAIL(ARITH_OP( op , trg, a, incr));
 	target = a;
 	a = trg;
@@ -989,7 +991,7 @@ exception_restore:
 				if(type(STK(arg1)) != OT_GENERATOR){ Raise_Error(_SC("trying to resume a '%s',only genenerator can be resumed"), GetTypeName(STK(arg1))); SQ_THROW();}
 				_GUARD(_generator(STK(arg1))->Resume(this, TARGET));
 				traps += ci->_etraps;
-				continue;
+                continue;
 			case _OP_FOREACH:{ int tojump;
 				_GUARD(FOREACH_OP(STK(arg0),STK(arg2),STK(arg2+1),STK(arg2+2),arg2,sarg1,tojump));
 				ci->_ip += tojump; }
@@ -1254,7 +1256,7 @@ SQInteger SQVM::FallBackGet(const SQObjectPtr &self,const SQObjectPtr &key,SQObj
 	switch(type(self)){
 	case OT_TABLE:
 	case OT_USERDATA:
-		//delegation
+        //delegation
 		if(_delegable(self)->_delegate) {
 			if(Get(SQObjectPtr(_delegable(self)->_delegate),key,dest,false,DONT_FALL_BACK)) return FALLBACK_OK;	
 		}
@@ -1644,10 +1646,10 @@ void SQVM::RelocateOuters()
 void SQVM::CloseOuters(SQObjectPtr *stackindex) {
   SQOuter *p;
   while ((p = _openouters) != NULL && p->_valptr >= stackindex) {
-	p->_value = *(p->_valptr);
-	p->_valptr = &p->_value;
-	_openouters = p->_next;
-	__ObjRelease(p);
+    p->_value = *(p->_valptr);
+    p->_valptr = &p->_value;
+    _openouters = p->_next;
+  	__ObjRelease(p);
   }
 }
 

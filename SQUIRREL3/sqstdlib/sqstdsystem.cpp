@@ -1,4 +1,4 @@
-#include "Stdafx.h"
+/* see copyright notice in squirrel.h */
 #include <squirrel.h>
 #include <time.h>
 #include <stdlib.h>
@@ -24,7 +24,7 @@ static SQInteger _system_getenv(HSQUIRRELVM v)
 {
 	const SQChar *s;
 	if(SQ_SUCCEEDED(sq_getstring(v,2,&s))){
-		sq_pushstring(v,scgetenv(s),-1);
+        sq_pushstring(v,scgetenv(s),-1);
 		return 1;
 	}
 	return 0;
@@ -98,7 +98,7 @@ static SQInteger _system_date(HSQUIRRELVM v)
 		time(&t);
 	}
 	tm *date;
-	if(format == 'u')
+    if(format == 'u')
 		date = gmtime(&t);
 	else
 		date = localtime(&t);
@@ -106,13 +106,13 @@ static SQInteger _system_date(HSQUIRRELVM v)
 		return sq_throwerror(v,_SC("crt api failure"));
 	sq_newtable(v);
 	_set_integer_slot(v, _SC("sec"), date->tm_sec);
-	_set_integer_slot(v, _SC("min"), date->tm_min);
-	_set_integer_slot(v, _SC("hour"), date->tm_hour);
-	_set_integer_slot(v, _SC("day"), date->tm_mday);
-	_set_integer_slot(v, _SC("month"), date->tm_mon);
-	_set_integer_slot(v, _SC("year"), date->tm_year+1900);
-	_set_integer_slot(v, _SC("wday"), date->tm_wday);
-	_set_integer_slot(v, _SC("yday"), date->tm_yday);
+    _set_integer_slot(v, _SC("min"), date->tm_min);
+    _set_integer_slot(v, _SC("hour"), date->tm_hour);
+    _set_integer_slot(v, _SC("day"), date->tm_mday);
+    _set_integer_slot(v, _SC("month"), date->tm_mon);
+    _set_integer_slot(v, _SC("year"), date->tm_year+1900);
+    _set_integer_slot(v, _SC("wday"), date->tm_wday);
+    _set_integer_slot(v, _SC("yday"), date->tm_yday);
 	return 1;
 }
 

@@ -1,0 +1,141 @@
+﻿Build started 19.7.2014. 16:54:52.
+     1>Project "E:\Projects\Squirrel.NET\SquirrelNET\SquirrelNET\SquirrelNET.vcxproj" on node 2 (Rebuild target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /AI"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\\" /AI"C:\Program Files (x86)\Windows Kits\8.0\References\CommonConfiguration\Neutral" /AI"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\Facades\\" /Zi /clr /nologo /W3 /WX- /O2 /Oy- /D WIN32 /D NDEBUG /D _CRT_SECURE_NO_WARNINGS /D _WINDLL /D _UNICODE /D UNICODE /EHa /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yc"stdafx.h" /Fp"Release\SquirrelNET.pch" /Fo"Release\\" /Fd"Release\vc110.pdb" /TP /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\mscorlib.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Data.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Xml.dll" /analyze- /errorReport:prompt /clr:nostdlib Stdafx.cpp
+         Stdafx.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /AI"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\\" /AI"C:\Program Files (x86)\Windows Kits\8.0\References\CommonConfiguration\Neutral" /AI"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\Facades\\" /Zi /clr /nologo /W3 /WX- /O2 /Oy- /D WIN32 /D NDEBUG /D _CRT_SECURE_NO_WARNINGS /D _WINDLL /D _UNICODE /D UNICODE /EHa /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc110.pdb" /TP /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\mscorlib.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Data.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Xml.dll" /analyze- /errorReport:prompt /clr:nostdlib ..\..\SQUIRREL3\sqstdlib\sqstdaux.cpp ..\..\SQUIRREL3\sqstdlib\sqstdblob.cpp ..\..\SQUIRREL3\sqstdlib\sqstdio.cpp ..\..\SQUIRREL3\sqstdlib\sqstdmath.cpp ..\..\SQUIRREL3\sqstdlib\sqstdrex.cpp ..\..\SQUIRREL3\sqstdlib\sqstdstream.cpp ..\..\SQUIRREL3\sqstdlib\sqstdstring.cpp ..\..\SQUIRREL3\sqstdlib\sqstdsystem.cpp ..\..\SQUIRREL3\squirrel\sqapi.cpp ..\..\SQUIRREL3\squirrel\sqbaselib.cpp ..\..\SQUIRREL3\squirrel\sqclass.cpp ..\..\SQUIRREL3\squirrel\sqcompiler.cpp ..\..\SQUIRREL3\squirrel\sqdebug.cpp ..\..\SQUIRREL3\squirrel\sqfuncstate.cpp ..\..\SQUIRREL3\squirrel\sqlexer.cpp ..\..\SQUIRREL3\squirrel\sqmem.cpp ..\..\SQUIRREL3\squirrel\sqobject.cpp ..\..\SQUIRREL3\squirrel\sqstate.cpp ..\..\SQUIRREL3\squirrel\sqtable.cpp ..\..\SQUIRREL3\squirrel\sqvm.cpp AssemblyInfo.cpp Calls.cpp Compiler.cpp Misc.cpp ObjectCreation.cpp ObjectHandling.cpp SqStd.cpp ObjectManipulation.cpp Stack.cpp VM.cpp
+         sqstdaux.cpp
+         sqstdblob.cpp
+         sqstdio.cpp
+         sqstdmath.cpp
+         sqstdrex.cpp
+         sqstdstream.cpp
+         sqstdstring.cpp
+     1>..\..\SQUIRREL3\sqstdlib\sqstdstring.cpp(138): warning C4996: 'swprintf': swprintf has been changed to conform with the ISO C standard, adding an extra character count parameter. To use traditional Microsoft swprintf, set _CRT_NON_CONFORMING_SWPRINTFS.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\swprintf.inl(85) : see declaration of 'swprintf'
+     1>..\..\SQUIRREL3\sqstdlib\sqstdstring.cpp(139): warning C4996: 'swprintf': swprintf has been changed to conform with the ISO C standard, adding an extra character count parameter. To use traditional Microsoft swprintf, set _CRT_NON_CONFORMING_SWPRINTFS.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\swprintf.inl(85) : see declaration of 'swprintf'
+     1>..\..\SQUIRREL3\sqstdlib\sqstdstring.cpp(140): warning C4996: 'swprintf': swprintf has been changed to conform with the ISO C standard, adding an extra character count parameter. To use traditional Microsoft swprintf, set _CRT_NON_CONFORMING_SWPRINTFS.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\swprintf.inl(85) : see declaration of 'swprintf'
+         sqstdsystem.cpp
+         sqapi.cpp
+     1>..\..\SQUIRREL3\squirrel\sqapi.cpp(37): warning C4996: 'swprintf': swprintf has been changed to conform with the ISO C standard, adding an extra character count parameter. To use traditional Microsoft swprintf, set _CRT_NON_CONFORMING_SWPRINTFS.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\swprintf.inl(85) : see declaration of 'swprintf'
+         sqbaselib.cpp
+         sqclass.cpp
+         sqcompiler.cpp
+     1>..\..\SQUIRREL3\squirrel\sqcompiler.cpp(93): warning C4996: 'vswprintf': swprintf has been changed to conform with the ISO C standard, adding an extra character count parameter. To use traditional Microsoft swprintf, set _CRT_NON_CONFORMING_SWPRINTFS.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\swprintf.inl(97) : see declaration of 'vswprintf'
+         sqdebug.cpp
+     1>..\..\SQUIRREL3\squirrel\sqdebug.cpp(62): warning C4996: 'vswprintf': swprintf has been changed to conform with the ISO C standard, adding an extra character count parameter. To use traditional Microsoft swprintf, set _CRT_NON_CONFORMING_SWPRINTFS.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\swprintf.inl(97) : see declaration of 'vswprintf'
+     1>..\..\SQUIRREL3\squirrel\sqdebug.cpp(77): warning C4996: 'swprintf': swprintf has been changed to conform with the ISO C standard, adding an extra character count parameter. To use traditional Microsoft swprintf, set _CRT_NON_CONFORMING_SWPRINTFS.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\swprintf.inl(85) : see declaration of 'swprintf'
+     1>..\..\SQUIRREL3\squirrel\sqdebug.cpp(81): warning C4996: 'swprintf': swprintf has been changed to conform with the ISO C standard, adding an extra character count parameter. To use traditional Microsoft swprintf, set _CRT_NON_CONFORMING_SWPRINTFS.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\swprintf.inl(85) : see declaration of 'swprintf'
+         sqfuncstate.cpp
+         sqlexer.cpp
+         sqmem.cpp
+         sqobject.cpp
+         sqstate.cpp
+         sqtable.cpp
+         sqvm.cpp
+     1>..\..\SQUIRREL3\squirrel\sqvm.cpp(285): warning C4996: 'swprintf': swprintf has been changed to conform with the ISO C standard, adding an extra character count parameter. To use traditional Microsoft swprintf, set _CRT_NON_CONFORMING_SWPRINTFS.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\swprintf.inl(85) : see declaration of 'swprintf'
+     1>..\..\SQUIRREL3\squirrel\sqvm.cpp(288): warning C4996: 'swprintf': swprintf has been changed to conform with the ISO C standard, adding an extra character count parameter. To use traditional Microsoft swprintf, set _CRT_NON_CONFORMING_SWPRINTFS.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\swprintf.inl(85) : see declaration of 'swprintf'
+     1>..\..\SQUIRREL3\squirrel\sqvm.cpp(291): warning C4996: 'swprintf': swprintf has been changed to conform with the ISO C standard, adding an extra character count parameter. To use traditional Microsoft swprintf, set _CRT_NON_CONFORMING_SWPRINTFS.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\swprintf.inl(85) : see declaration of 'swprintf'
+     1>..\..\SQUIRREL3\squirrel\sqvm.cpp(310): warning C4996: 'swprintf': swprintf has been changed to conform with the ISO C standard, adding an extra character count parameter. To use traditional Microsoft swprintf, set _CRT_NON_CONFORMING_SWPRINTFS.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\swprintf.inl(85) : see declaration of 'swprintf'
+         Generating Code...
+     1>e:\projects\squirrel.net\squirrel3\squirrel\sqdebug.cpp(59): warning C4793: 'SQVM::Raise_Error' : function compiled as native :
+         	varargs not supported under /clr
+     1>e:\projects\squirrel.net\squirrel3\squirrel\sqdebug.cpp(61): warning C4793: 'SQVM::Raise_Error' : function compiled as native :
+         	Found an intrinsic not supported in managed code
+     1>e:\projects\squirrel.net\squirrel3\squirrel\sqdebug.cpp(63): warning C4793: 'SQVM::Raise_Error' : function compiled as native :
+         	Found an intrinsic not supported in managed code
+     1>e:\projects\squirrel.net\squirrel3\squirrel\sqcompiler.cpp(90): warning C4793: 'SQCompiler::Error' : function compiled as native :
+         	varargs not supported under /clr
+     1>e:\projects\squirrel.net\squirrel3\squirrel\sqcompiler.cpp(92): warning C4793: 'SQCompiler::Error' : function compiled as native :
+         	Found an intrinsic not supported in managed code
+     1>e:\projects\squirrel.net\squirrel3\squirrel\sqcompiler.cpp(94): warning C4793: 'SQCompiler::Error' : function compiled as native :
+         	Found an intrinsic not supported in managed code
+     1>e:\projects\squirrel.net\squirrel3\squirrel\sqcompiler.cpp(177): warning C4793: 'SQCompiler::Compile' : function compiled as native :
+         	Presence of '_setjmp' makes a function unmanaged
+     1>e:\projects\squirrel.net\squirrel3\include\squirrel.h(296): warning C4793: 'FORMAT@0x7cf90404' : function compiled as native :
+         	varargs not supported under /clr
+     1>e:\projects\squirrel.net\squirrel3\include\squirrel.h(298): warning C4793: 'FORMAT@0x7cf90404' : function compiled as native :
+         	Found an intrinsic not supported in managed code
+     1>e:\projects\squirrel.net\squirrel3\include\squirrel.h(301): warning C4793: 'FORMAT@0x7cf90404' : function compiled as native :
+         	Found an intrinsic not supported in managed code
+     1>e:\projects\squirrel.net\squirrel3\sqstdlib\sqstdrex.cpp(537): warning C4793: 'sqstd_rex_compile' : function compiled as native :
+         	Presence of '_setjmp' makes a function unmanaged
+     1>e:\projects\squirrel.net\squirrel3\include\squirrel.h(296): warning C4793: 'FORMAT@0xdb9aee9e' : function compiled as native :
+         	varargs not supported under /clr
+     1>e:\projects\squirrel.net\squirrel3\include\squirrel.h(298): warning C4793: 'FORMAT@0xdb9aee9e' : function compiled as native :
+         	Found an intrinsic not supported in managed code
+     1>e:\projects\squirrel.net\squirrel3\include\squirrel.h(301): warning C4793: 'FORMAT@0xdb9aee9e' : function compiled as native :
+         	Found an intrinsic not supported in managed code
+         Compiling...
+         AssemblyInfo.cpp
+         Calls.cpp
+         Compiler.cpp
+         Misc.cpp
+         ObjectCreation.cpp
+     1>ObjectCreation.cpp(91): warning C4800: 'SQBool' : forcing value to bool 'true' or 'false' (performance warning)
+     1>ObjectCreation.cpp(101): warning C4800: 'SQUnsignedInteger' : forcing value to bool 'true' or 'false' (performance warning)
+     1>ObjectCreation.cpp(128): warning C4800: 'SQUnsignedInteger' : forcing value to bool 'true' or 'false' (performance warning)
+     1>ObjectCreation.cpp(247): warning C4800: 'SQBool' : forcing value to bool 'true' or 'false' (performance warning)
+         ObjectHandling.cpp
+     1>ObjectHandling.cpp(40): warning C4800: 'SQBool' : forcing value to bool 'true' or 'false' (performance warning)
+     1>ObjectHandling.cpp(56): warning C4800: 'SQBool' : forcing value to bool 'true' or 'false' (performance warning)
+         SqStd.cpp
+         ObjectManipulation.cpp
+         Stack.cpp
+         VM.cpp
+         Generating Code...
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /Zi /clr /nologo /W3 /WX- /O2 /Oy- /D WIN32 /D NDEBUG /D _CRT_SECURE_NO_WARNINGS /D _WINDLL /D _UNICODE /D UNICODE /EHa /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc110.pdb" /TP /analyze- /errorReport:prompt "C:\Users\cartm_000\AppData\Local\Temp\.NETFramework,Version=v4.5.AssemblyAttributes.cpp"
+         .NETFramework,Version=v4.5.AssemblyAttributes.cpp
+       ResourceCompile:
+         C:\Program Files (x86)\Windows Kits\8.0\bin\x86\rc.exe /D _UNICODE /D UNICODE /l"0x0409" /nologo /fo"Release\app.res" app.rc 
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"E:\Projects\Squirrel.NET\SquirrelNET\..\squirrel_bin\SquirrelNET.dll" /INCREMENTAL:NO /NOLOGO /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:\Projects\Squirrel.NET\SquirrelNET\..\squirrel_bin\SquirrelNET.pdb" /TLBID:1 /DYNAMICBASE /FIXED:NO /NXCOMPAT /MACHINE:X86 /SAFESEH /DLL Release\app.res
+         Release\sqstdaux.obj
+         Release\sqstdblob.obj
+         Release\sqstdio.obj
+         Release\sqstdmath.obj
+         Release\sqstdrex.obj
+         Release\sqstdstream.obj
+         Release\sqstdstring.obj
+         Release\sqstdsystem.obj
+         Release\sqapi.obj
+         Release\sqbaselib.obj
+         Release\sqclass.obj
+         Release\sqcompiler.obj
+         Release\sqdebug.obj
+         Release\sqfuncstate.obj
+         Release\sqlexer.obj
+         Release\sqmem.obj
+         Release\sqobject.obj
+         Release\sqstate.obj
+         Release\sqtable.obj
+         Release\sqvm.obj
+         Release\AssemblyInfo.obj
+         Release\Calls.obj
+         Release\Compiler.obj
+         Release\Misc.obj
+         Release\ObjectCreation.obj
+         Release\ObjectHandling.obj
+         Release\SqStd.obj
+         Release\ObjectManipulation.obj
+         Release\Stack.obj
+         Release\Stdafx.obj
+         Release\VM.obj
+         "Release\.NETFramework,Version=v4.5.AssemblyAttributes.obj"
+         SquirrelNET.vcxproj -> E:\Projects\Squirrel.NET\SquirrelNET\..\squirrel_bin\SquirrelNET.dll
+     1>Done Building Project "E:\Projects\Squirrel.NET\SquirrelNET\SquirrelNET\SquirrelNET.vcxproj" (Rebuild target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:22.30

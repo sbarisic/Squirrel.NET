@@ -1,4 +1,6 @@
-#include "Stdafx.h"
+/*
+	see copyright notice in squirrel.h
+*/
 #include "sqpcheader.h"
 #include "sqvm.h"
 #include "sqstring.h"
@@ -203,7 +205,7 @@ const SQChar* SQFunctionProto::GetLocal(SQVM *vm,SQUnsignedInteger stackbase,SQU
 	SQUnsignedInteger nvars=_nlocalvarinfos;
 	const SQChar *res=NULL; 
 	if(nvars>=nseq){
-		for(SQUnsignedInteger i=0;i<nvars;i++){
+ 		for(SQUnsignedInteger i=0;i<nvars;i++){
 			if(_localvarinfos[i]._start_op<=nop && _localvarinfos[i]._end_op>=nop)
 			{
 				if(nseq==0){
@@ -639,10 +641,10 @@ void SQNativeClosure::Mark(SQCollectable **chain)
 void SQOuter::Mark(SQCollectable **chain)
 {
 	START_MARK()
-	/* If the valptr points to a closed value, that value is alive */
-	if(_valptr == &_value) {
-	  SQSharedState::MarkObject(_value, chain);
-	}
+    /* If the valptr points to a closed value, that value is alive */
+    if(_valptr == &_value) {
+      SQSharedState::MarkObject(_value, chain);
+    }
 	END_MARK()
 }
 

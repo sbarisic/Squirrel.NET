@@ -1,4 +1,6 @@
-#include "Stdafx.h"
+/*
+see copyright notice in squirrel.h
+*/
 #include "sqpcheader.h"
 #include "sqvm.h"
 #include "sqstring.h"
@@ -100,7 +102,7 @@ static SQInteger base_setdebughook(HSQUIRRELVM v)
 static SQInteger base_enabledebuginfo(HSQUIRRELVM v)
 {
 	SQObjectPtr &o=stack_get(v,2);
-	
+
 	sq_enabledebuginfo(v,SQVM::IsFalse(o)?SQFalse:SQTrue);
 	return 0;
 }
@@ -110,7 +112,7 @@ static SQInteger __getcallstackinfos(HSQUIRRELVM v,SQInteger level)
 	SQStackInfos si;
 	SQInteger seq = 0;
 	const SQChar *name = NULL;
-	
+
 	if (SQ_SUCCEEDED(sq_stackinfos(v, level, &si)))
 	{
 		const SQChar *fn = _SC("unknown");
@@ -299,7 +301,7 @@ void sq_base_register(HSQUIRRELVM v)
 		sq_newslot(v,-3, SQFalse);
 		i++;
 	}
-	
+
 	sq_pushstring(v,_SC("_versionnumber_"),-1);
 	sq_pushinteger(v,SQUIRREL_VERSION_NUMBER);
 	sq_newslot(v,-3, SQFalse);
@@ -334,8 +336,8 @@ static SQInteger default_delegate_tofloat(HSQUIRRELVM v)
 			v->Push(SQObjectPtr(tofloat(res)));
 			break;
 		}}
-		return sq_throwerror(v, _SC("cannot convert the string"));
-		break;
+				   return sq_throwerror(v, _SC("cannot convert the string"));
+				   break;
 	case OT_INTEGER:case OT_FLOAT:
 		v->Push(SQObjectPtr(tofloat(o)));
 		break;
@@ -359,8 +361,8 @@ static SQInteger default_delegate_tointeger(HSQUIRRELVM v)
 			v->Push(SQObjectPtr(tointeger(res)));
 			break;
 		}}
-		return sq_throwerror(v, _SC("cannot convert the string"));
-		break;
+				   return sq_throwerror(v, _SC("cannot convert the string"));
+				   break;
 	case OT_INTEGER:case OT_FLOAT:
 		v->Push(SQObjectPtr(tointeger(o)));
 		break;
@@ -753,7 +755,7 @@ static SQInteger array_slice(HSQUIRRELVM v)
 	}
 	v->Push(arr);
 	return 1;
-	
+
 }
 
 SQRegFunction SQSharedState::_array_default_delegate_funcz[]={
@@ -826,19 +828,19 @@ static SQInteger string_find(HSQUIRRELVM v)
 
 
 STRING_TOFUNCZ(tolower)
-STRING_TOFUNCZ(toupper)
+	STRING_TOFUNCZ(toupper)
 
-SQRegFunction SQSharedState::_string_default_delegate_funcz[]={
-	{_SC("len"),default_delegate_len,1, _SC("s")},
-	{_SC("tointeger"),default_delegate_tointeger,1, _SC("s")},
-	{_SC("tofloat"),default_delegate_tofloat,1, _SC("s")},
-	{_SC("tostring"),default_delegate_tostring,1, _SC(".")},
-	{_SC("slice"),string_slice,-1, _SC(" s n  n")},
-	{_SC("find"),string_find,-2, _SC("s s n ")},
-	{_SC("tolower"),string_tolower,1, _SC("s")},
-	{_SC("toupper"),string_toupper,1, _SC("s")},
-	{_SC("weakref"),obj_delegate_weakref,1, NULL },
-	{0,0}
+	SQRegFunction SQSharedState::_string_default_delegate_funcz[]={
+		{_SC("len"),default_delegate_len,1, _SC("s")},
+		{_SC("tointeger"),default_delegate_tointeger,1, _SC("s")},
+		{_SC("tofloat"),default_delegate_tofloat,1, _SC("s")},
+		{_SC("tostring"),default_delegate_tostring,1, _SC(".")},
+		{_SC("slice"),string_slice,-1, _SC(" s n  n")},
+		{_SC("find"),string_find,-2, _SC("s s n ")},
+		{_SC("tolower"),string_tolower,1, _SC("s")},
+		{_SC("toupper"),string_toupper,1, _SC("s")},
+		{_SC("weakref"),obj_delegate_weakref,1, NULL },
+		{0,0}
 };
 
 //INTEGER DEFAULT DELEGATE//////////////////////////
@@ -895,11 +897,11 @@ static SQInteger closure_getinfos(HSQUIRRELVM v) {
 		SQFunctionProto *f = _closure(o)->_function;
 		SQInteger nparams = f->_nparameters + (f->_varparams?1:0);
 		SQObjectPtr params = SQArray::Create(_ss(v),nparams);
-	SQObjectPtr defparams = SQArray::Create(_ss(v),f->_ndefaultparams);
+		SQObjectPtr defparams = SQArray::Create(_ss(v),f->_ndefaultparams);
 		for(SQInteger n = 0; n<f->_nparameters; n++) {
 			_array(params)->Set((SQInteger)n,f->_parameters[n]);
 		}
-	for(SQInteger j = 0; j<f->_ndefaultparams; j++) {
+		for(SQInteger j = 0; j<f->_ndefaultparams; j++) {
 			_array(defparams)->Set((SQInteger)j,_closure(o)->_defaultparams[j]);
 		}
 		if(f->_varparams) {
@@ -910,7 +912,7 @@ static SQInteger closure_getinfos(HSQUIRRELVM v) {
 		res->NewSlot(SQString::Create(_ss(v),_SC("src"),-1),f->_sourcename);
 		res->NewSlot(SQString::Create(_ss(v),_SC("parameters"),-1),params);
 		res->NewSlot(SQString::Create(_ss(v),_SC("varargs"),-1),f->_varparams);
-	res->NewSlot(SQString::Create(_ss(v),_SC("defparams"),-1),defparams);
+		res->NewSlot(SQString::Create(_ss(v),_SC("defparams"),-1),defparams);
 	}
 	else { //OT_NATIVECLOSURE 
 		SQNativeClosure *nc = _nativeclosure(o);
@@ -922,7 +924,7 @@ static SQInteger closure_getinfos(HSQUIRRELVM v) {
 			typecheck =
 				SQArray::Create(_ss(v), nc->_typecheck.size());
 			for(SQUnsignedInteger n = 0; n<nc->_typecheck.size(); n++) {
-					_array(typecheck)->Set((SQInteger)n,nc->_typecheck[n]);
+				_array(typecheck)->Set((SQInteger)n,nc->_typecheck[n]);
 			}
 		}
 		res->NewSlot(SQString::Create(_ss(v),_SC("typecheck"),-1),typecheck);
@@ -950,9 +952,9 @@ static SQInteger generator_getstatus(HSQUIRRELVM v)
 {
 	SQObject &o=stack_get(v,1);
 	switch(_generator(o)->_state){
-		case SQGenerator::eSuspended:v->Push(SQString::Create(_ss(v),_SC("suspended")));break;
-		case SQGenerator::eRunning:v->Push(SQString::Create(_ss(v),_SC("running")));break;
-		case SQGenerator::eDead:v->Push(SQString::Create(_ss(v),_SC("dead")));break;
+	case SQGenerator::eSuspended:v->Push(SQString::Create(_ss(v),_SC("suspended")));break;
+	case SQGenerator::eRunning:v->Push(SQString::Create(_ss(v),_SC("running")));break;
+	case SQGenerator::eDead:v->Push(SQString::Create(_ss(v),_SC("dead")));break;
 	}
 	return 1;
 }
@@ -992,15 +994,15 @@ static SQInteger thread_wakeup(HSQUIRRELVM v)
 		SQInteger state = sq_getvmstate(thread);
 		if(state != SQ_VMSTATE_SUSPENDED) {
 			switch(state) {
-				case SQ_VMSTATE_IDLE:
-					return sq_throwerror(v,_SC("cannot wakeup a idle thread"));
+			case SQ_VMSTATE_IDLE:
+				return sq_throwerror(v,_SC("cannot wakeup a idle thread"));
 				break;
-				case SQ_VMSTATE_RUNNING:
-					return sq_throwerror(v,_SC("cannot wakeup a running thread"));
+			case SQ_VMSTATE_RUNNING:
+				return sq_throwerror(v,_SC("cannot wakeup a running thread"));
 				break;
 			}
 		}
-			
+
 		SQInteger wakeupret = sq_gettop(v)>1?1:0;
 		if(wakeupret) {
 			sq_move(thread,v,2);
@@ -1024,17 +1026,17 @@ static SQInteger thread_getstatus(HSQUIRRELVM v)
 {
 	SQObjectPtr &o = stack_get(v,1);
 	switch(sq_getvmstate(_thread(o))) {
-		case SQ_VMSTATE_IDLE:
-			sq_pushstring(v,_SC("idle"),-1);
+	case SQ_VMSTATE_IDLE:
+		sq_pushstring(v,_SC("idle"),-1);
 		break;
-		case SQ_VMSTATE_RUNNING:
-			sq_pushstring(v,_SC("running"),-1);
+	case SQ_VMSTATE_RUNNING:
+		sq_pushstring(v,_SC("running"),-1);
 		break;
-		case SQ_VMSTATE_SUSPENDED:
-			sq_pushstring(v,_SC("suspended"),-1);
+	case SQ_VMSTATE_SUSPENDED:
+		sq_pushstring(v,_SC("suspended"),-1);
 		break;
-		default:
-			return sq_throwerror(v,_SC("internal VM error"));
+	default:
+		return sq_throwerror(v,_SC("internal VM error"));
 	}
 	return 1;
 }
@@ -1067,7 +1069,7 @@ static SQInteger thread_getstackinfos(HSQUIRRELVM v)
 		//no result
 		sq_settop(thread,threadtop);
 		return 0;
-		
+
 	}
 	return sq_throwerror(v,_SC("wrong parameter"));
 }

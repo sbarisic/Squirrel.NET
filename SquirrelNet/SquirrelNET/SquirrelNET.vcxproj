@@ -93,7 +93,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -117,7 +117,7 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -264,6 +264,9 @@
     <ClCompile Include="AssemblyInfo.cpp" />
     <ClCompile Include="Calls.cpp" />
     <ClCompile Include="Compiler.cpp" />
+    <ClCompile Include="Misc.cpp" />
+    <ClCompile Include="ObjectCreation.cpp" />
+    <ClCompile Include="ObjectHandling.cpp" />
     <ClCompile Include="SqStd.cpp" />
     <ClCompile Include="ObjectManipulation.cpp" />
     <ClCompile Include="Stack.cpp" />

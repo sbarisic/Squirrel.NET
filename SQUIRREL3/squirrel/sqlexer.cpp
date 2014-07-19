@@ -1,4 +1,6 @@
-#include "Stdafx.h"
+/*
+	see copyright notice in squirrel.h
+*/
 #include "sqpcheader.h"
 #include <ctype.h>
 #include <stdlib.h>
@@ -321,7 +323,7 @@ SQInteger SQLexer::ReadString(SQInteger ndelim,bool verbatim)
 						SQChar *sTemp;
 						APPEND_CHAR((SQChar)scstrtoul(temp,&sTemp,16));
 					}
-					break;
+				    break;
 					case _SC('t'): APPEND_CHAR(_SC('\t')); NEXT(); break;
 					case _SC('a'): APPEND_CHAR(_SC('\a')); NEXT(); break;
 					case _SC('b'): APPEND_CHAR(_SC('\b')); NEXT(); break;
@@ -434,7 +436,7 @@ SQInteger SQLexer::ReadNumber()
 	else {
 		APPEND_CHAR((int)firstchar);
 		while (CUR_CHAR == _SC('.') || scisdigit(CUR_CHAR) || isexponent(CUR_CHAR)) {
-			if(CUR_CHAR == _SC('.') || isexponent(CUR_CHAR)) type = TFLOAT;
+            if(CUR_CHAR == _SC('.') || isexponent(CUR_CHAR)) type = TFLOAT;
 			if(isexponent(CUR_CHAR)) {
 				if(type != TFLOAT) Error(_SC("invalid numeric format"));
 				type = TSCIENTIFIC;

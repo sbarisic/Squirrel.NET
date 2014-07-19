@@ -1,4 +1,3 @@
-#include "Stdafx.h"
 #include <squirrel.h>
 #include <sqstdaux.h>
 #include <assert.h>
@@ -86,7 +85,7 @@ void sqstd_printcallstack(HSQUIRRELVM v)
 					sq_getinteger(v,-1,&i);
 					pf(v,FORMAT(_SC("[%s] %s\n"),name,i?_SC("true"):_SC("false")));
 							 }
-					break;
+							 break;
 				default: assert(0); break;
 				}
 				sq_pop(v,1);

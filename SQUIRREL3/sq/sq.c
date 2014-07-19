@@ -242,7 +242,7 @@ void Interactive(HSQUIRRELVM v)
 	sq_newslot(v,-3,SQFalse);
 	sq_pop(v,1);
 
-    while (!done) 
+	while (!done) 
 	{
 		SQInteger i = 0;
 		scprintf(_SC("\nsq>"));

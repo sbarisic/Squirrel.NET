@@ -16,3 +16,8 @@ For contributors
 * Stay true to the original C API
 
 Contact me if you need help
+
+Squirrel API references
+-----------------------
+
+* http://squirreldoc.neonapple.com/v3/ref.api.html

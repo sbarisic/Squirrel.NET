@@ -31,7 +31,30 @@ namespace SqNet {
 			SqStd.RegisterStringLib(S);
 			SqStd.SetErrorHandlers(S);
 
+			Sq.PushString(S, "ManagedInt");
+			Sq.NewClosure(S, (SS) => {
+				Sq.PushInteger(SS, 42);
+				return 1;
+			}, 0);
+			Sq.NewSlot(S, -3, false);
 
+			Sq.PushString(S, "ManagedStr");
+			Sq.NewClosure(S, (SS) => {
+				Sq.PushString(S, "Hello World!");
+				return 1;
+			}, 0);
+			Sq.NewSlot(S, -3, false);
+
+			Sq.PushString(S, "PushSelf");
+			Sq.NewClosure(S, (SS) => {
+				Console.WriteLine("Pushed self!");
+				Sq.PushRootTable(SS);
+				Sq.PushString(SS, "PushSelf");
+				Sq.Get(SS, -2);
+				Sq.Remove(SS, -2);
+				return 1;
+			}, 0);
+			Sq.NewSlot(S, -3, false);
 
 
 			Console.WriteLine("Running .NET version of Squirrel {0}\n",

@@ -57,8 +57,7 @@ namespace SqNet {
 			Sq.NewSlot(S, -3, false);
 
 
-			Console.WriteLine("Running .NET version of Squirrel {0}\n",
-				String.Join(".", Sq.GetVersion().ToString().ToCharArray()));
+			Console.WriteLine("Running .NET version of Squirrel {0}\n", String.Join(".", Sq.GetVersion().ToString().ToCharArray()));
 
 			while (true) {
 				Console.Write(Prmpt);

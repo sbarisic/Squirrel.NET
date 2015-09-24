@@ -56,6 +56,16 @@ namespace SqNet {
 			}, 0);
 			Sq.NewSlot(S, -3, false);
 
+			Sq.PushString(S, "WriteStrings");
+			Sq.NewClosure(S, (SS) => {
+				string Str1, Str2;
+				Sq.GetString(SS, -2, out Str1);
+				Sq.GetString(SS, -1, out Str2);
+				Console.WriteLine("A: {0}\nB: {1}", Str1, Str2);
+				return 0;
+			}, 0);
+			Sq.NewSlot(S, -3, false);
+			
 
 			Console.WriteLine("Running .NET version of Squirrel {0}\n", String.Join(".", Sq.GetVersion().ToString().ToCharArray()));
 

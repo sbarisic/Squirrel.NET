@@ -1,5 +1,0 @@
-TODO:
-
-
-* Complete bindings
-* Compile with Mono support (http://mono-project.com/CPlusPlus) (/clr:pure NOT FUCKING /clr:safe)

@@ -21,6 +21,7 @@
 #define OUT(Typ) [Out] Typ%
 #define ToVM(S) ((HSQUIRRELVM)S.ToPointer())
 #define GetSQCharPtr(Str, Name) pin_ptr<const SQChar> Name = PtrToStringChars(Str)
+#define PtrToString(Ptr) Marshal::PtrToStringAuto(IntPtr((void*)Ptr))
 
 #define usings\
 	using namespace System; \

@@ -38,6 +38,13 @@ namespace SquirrelNET {
 		String^ Source;
 	};
 
+	public value class SQStackInfos {
+	public:
+		String^ FuncName;
+		String^ Source;
+		SQInteger Line;
+	};
+
 	public ref class Sq {
 	public:
 		// Implement function pointers as delegates. Use UniString^ instead of String^
@@ -193,7 +200,7 @@ namespace SquirrelNET {
 		static IntPtr Malloc(SQUnsignedInteger size);
 		static IntPtr Realloc(IntPtr p, SQUnsignedInteger oldsize, SQUnsignedInteger newsize);
 		static void Free(IntPtr p, SQUnsignedInteger size);
-		static SQRESULT StackInfos(IntPtr v, SQInteger level, IntPtr si);
+		static SQRESULT StackInfos(IntPtr v, SQInteger level, OUT(SQStackInfos) si);
 		static void SetDebugHook(IntPtr v);
 		static void SetNativeDebugHook(IntPtr v, DebugHook^ hook);
 	};

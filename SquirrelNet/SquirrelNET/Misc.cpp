@@ -41,10 +41,12 @@ namespace SquirrelNET {
 		sq_free(p.ToPointer(), size);
 	}
 
-	SQRESULT Sq::StackInfos(IntPtr v, SQInteger level, IntPtr si) {
-		tagSQStackInfos* SInf = 0;
-		auto R = sq_stackinfos(ToVM(v), level, SInf); 
-		si = IntPtr(SInf);
+	SQRESULT Sq::StackInfos(IntPtr v, SQInteger level, OUT(SQStackInfos) si) {
+		tagSQStackInfos SInf;
+		auto R = sq_stackinfos(ToVM(v), level, &SInf); 
+		si.FuncName = PtrToString(SInf.funcname);
+		si.Source = PtrToString(SInf.source);
+		si.Line = SInf.line;
 		return R;
 	}
 

@@ -65,6 +65,15 @@ namespace SqNet {
 				return 0;
 			});
 
+			RegisterFunction(S, "StackInfos", (SS) => {
+				SQStackInfos SInf;
+				int Int;
+				Sq.GetInt(SS, -1, out Int);
+				Sq.StackInfos(SS, Int, out SInf);
+				Console.WriteLine("Name: {0}; Line: {1}", SInf.FuncName, SInf.Line);
+				return 0;
+			});
+
 			Console.WriteLine("Running .NET version of Squirrel {0}\n", String.Join(".", Sq.GetVersion().ToString().ToCharArray()));
 
 			while (true) {
